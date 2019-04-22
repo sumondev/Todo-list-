@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="https://ez-css.now.sh">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+	<main id="vue-app">
+
+		<h2>{{title}}</h2>
+		<form @submit.prevent="addTodo">
+		 <label for="newTodo">New Todo</label>
+		  <input class="a" v-model="newTodo" type="text" name="newTodo" id="newTodo" placeholder="create list" required="">
+		 <button class="b" type="submit" name="button">Add</button>
+
+		
+		</form>
+
+		<button class="markalldone" @click="alldone" type="" name="button">Mark all done</button>
+
+      <ul>
+      	<li v-for="todo in todos">
+
+
+
+		<input type="checkbox" v-model="todo.done" >
+		
+      	<span  :class= " { done: todo.done}"> {{todo.title}}  </span>
+      	<button class="remove" @click="removeTodo(todo)" name="button" type="button"> remove </button>
+
+
+      	</li>
+      </ul>
+
+		
+		
+		
+	</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+<script src="app.js"> </script>
+</body>
+</html>
+
